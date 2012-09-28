@@ -43,6 +43,4 @@ void loop(){
 ```
 
 ##Author##
-Created by Johannes Mittendorfer (http://jmittendorfer.hostingsociety.com) 2012.
-
-Feel free to fork!
+Johannes Mittendorfer (http://jmittendorfer.hostingsociety.com)
