@@ -1,3 +1,11 @@
+/*
+* RGBTools
+* Version 1 November, 2012
+* Copyright 2012 Johannes Mittendorfer
+* 
+* Use this code with RGB-LEDs.
+*/
+
 #include "RGBTools.h"
 
 // pins for colors
