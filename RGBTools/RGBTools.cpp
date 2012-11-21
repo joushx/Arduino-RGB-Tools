@@ -1,6 +1,6 @@
 /*
 * RGBTools
-* Version 1 November, 2012
+* Version 1.0 November, 2012
 * Copyright 2012 Johannes Mittendorfer
 * 
 * Use this code with RGB-LEDs.
