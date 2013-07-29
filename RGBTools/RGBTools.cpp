@@ -52,7 +52,7 @@ void RGBTools::fadeTo(int r,int g,int b,int steps,int duration){
 	float steps_b = diff_b / steps;
 
 	// loop through the steps
-	for(int i = 0; i < steps; i++){
+	for(int i = 1; i <= steps; i++){
 
 		// set color of current step
 		this->setColor(
