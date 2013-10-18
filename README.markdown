@@ -42,4 +42,4 @@ void loop(){
 ```
 
 ##Author##
-Johannes Mittendorfer (http://jmittendorfer.hostingsociety.com)
+Johannes Mittendorfer (http://johannes-mittendorfer.com)
