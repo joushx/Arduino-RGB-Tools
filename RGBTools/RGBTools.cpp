@@ -18,6 +18,10 @@ int curr_r = 0;
 int curr_g = 0;
 int curr_b = 0;
 
+// output for common cathode RGB leds (0 = dark)
+// default: common anode (0 = bright)
+uint8_t _common_cathode = 0;
+
 // constructor; saves the pins
 RGBTools::RGBTools(int r, int g, int b){
 	r_pin = r;
@@ -25,12 +29,26 @@ RGBTools::RGBTools(int r, int g, int b){
 	b_pin = b;
 }
 
+RGBTools::RGBTools(int r, int g, int b, uint8_t common_cathode){
+	r_pin = r;
+	g_pin = g;
+	b_pin = b;
+
+	_common_cathode = common_cathode;
+}
+
 // Set LED-color to custom color instantely
 void RGBTools::setColor(int r, int g, int b){
 	// set color of LED
-	analogWrite(r_pin,255-r);
-	analogWrite(g_pin,255-g);
-	analogWrite(b_pin,255-b);
+	if (_common_cathode) {
+		analogWrite(r_pin, r);
+		analogWrite(g_pin, g);
+		analogWrite(b_pin, b);
+	} else {
+		analogWrite(r_pin, 255 - r);
+		analogWrite(g_pin, 255 - g);
+		analogWrite(b_pin, 255 - b);
+	}
 
 	// save state
 	curr_r = r;
