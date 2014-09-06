@@ -59,7 +59,7 @@ void RGBTools::setColor(int r, int g, int b){
 // Fade to custom color in specific time in specific steps
 void RGBTools::fadeTo(int r,int g,int b,int steps,int duration){
 
-	// calculate differance to target
+	// calculate difference to target
 	int diff_r = r-curr_r;
 	int diff_g = g-curr_g;
 	int diff_b = b-curr_b;
@@ -69,23 +69,18 @@ void RGBTools::fadeTo(int r,int g,int b,int steps,int duration){
 	int steps_g = diff_g / steps;
 	int steps_b = diff_b / steps;
 
-	// loop through the steps
-	for(int i = 1; i <= steps; i++){
+	// loop through the steps (i: distance to target)
+	for(int i = steps - 1; i >= 0; i--){
 
 		// set color of current step
 		this->setColor(
-			r - i*steps_r,	// red part plus i times the value of one step
-			g - i*steps_g,	// green part plus i times the value of one step	
-			b - i*steps_b	// blue part plus i times the value of one step
+			r - i * steps_r,	// red target minus distance to target steps
+			g - i * steps_g,	// green
+			b - i * steps_b 	// blue
 		);
 
 		// delay until next step
 		delay(duration/steps);  
 	}
-
-	// save state
-	curr_r = r;
-	curr_g = g;
-	curr_b = b;
 }
 
