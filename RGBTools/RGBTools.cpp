@@ -7,34 +7,20 @@
 */
 
 #include "RGBTools.h"
-
-// pins for colors
-int r_pin;
-int g_pin;
-int b_pin;
-
-// saves current state (color)
-int curr_r = 0;
-int curr_g = 0;
-int curr_b = 0;
-
-// output for common cathode RGB leds (0 = dark)
-// default: common anode (0 = bright)
-uint8_t _common_cathode = 0;
-
+// 
 // constructor; saves the pins
 RGBTools::RGBTools(int r, int g, int b){
-	r_pin = r;
-	g_pin = g;
-	b_pin = b;
+	this->r_pin = r;
+	this->g_pin = g;
+	this->b_pin = b;
 }
 
 RGBTools::RGBTools(int r, int g, int b, uint8_t common_cathode){
-	r_pin = r;
-	g_pin = g;
-	b_pin = b;
+	this->r_pin = r;
+	this->g_pin = g;
+	this->b_pin = b;
 
-	_common_cathode = common_cathode;
+	this->_common_cathode = common_cathode;
 }
 
 // Set LED-color to custom color instantely
@@ -51,9 +37,9 @@ void RGBTools::setColor(int r, int g, int b){
 	}
 
 	// save state
-	curr_r = r;
-	curr_g = g;
-	curr_b = b;
+	this->curr_r = r;
+	this->curr_g = g;
+	this->curr_b = b;
 }
 
 // Fade to custom color in specific time in specific steps
