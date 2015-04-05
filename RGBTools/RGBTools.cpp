@@ -15,6 +15,18 @@ RGBTools::RGBTools(int r, int g, int b){
 	this->b_pin = b;
 }
 
+/**
+ * Constructor using the Mode enum in header file.
+ * Ex: RGBTools(9, 10, 11, COMMON_ANODE);
+ */
+RGBTools::RGBTools(int r, int g, int b, Mode mode){
+	this->r_pin = r;
+	this->g_pin = g;
+	this->b_pin = b;
+	if(mode = COMMON_CATHODE) this->_common_cathode = 1;
+	else this->_common_cathode = 0;
+}
+
 RGBTools::RGBTools(int r, int g, int b, uint8_t common_cathode){
 	this->r_pin = r;
 	this->g_pin = g;
@@ -40,6 +52,11 @@ void RGBTools::setColor(int r, int g, int b){
 	this->curr_r = r;
 	this->curr_g = g;
 	this->curr_b = b;
+}
+
+// Use a 32 bit hex value to set a color. See Colors class in header file
+void RGBTools::setColor(uint32_t color){
+	setColor((color & 0xFF0000) >> 16, (color & 0x00FF00) >> 8, color & 0x0000FF);
 }
 
 // Fade to custom color in specific time in specific steps
@@ -69,4 +86,3 @@ void RGBTools::fadeTo(int r,int g,int b,int steps,int duration){
 		delay(duration/steps);  
 	}
 }
-

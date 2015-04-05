@@ -3,12 +3,16 @@
 
 #include <Arduino.h>
 
+enum Mode { COMMON_ANNODE, COMMON_CATHODE };
+
 class RGBTools
 {
 	public:
 		RGBTools(int r, int g, int b);
 		RGBTools(int r, int g, int b, uint8_t common_cathode);
+		RGBTools(int r, int g, int b, Mode mode);
 		void setColor(int r, int g, int b);
+		void setColor(uint32_t);
 		void fadeTo(int r,int g,int b,int steps,int duration);
 		
 	private:
@@ -22,6 +26,13 @@ class RGBTools
 		// default: common anode (0 = bright)
 		uint8_t _common_cathode;
 
+};
+
+class Color {
+  public:
+    static const uint32_t RED = 0xFF0000;
+    static const uint32_t GREEN = 0x00FF00;
+    static const uint32_t BLUE = 0x0000FF;
 };
 
 #endif
