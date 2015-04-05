@@ -5,6 +5,14 @@ RGBTools is a software library for Arduino for controlling an RGB-LED.
 ##Installation
 Just copy the `RGBTools` folder to the `libraries` folder of your Arduino-IDE.
 
+##Initialization
+```c++
+#include <RGBTools.h>
+ 
+// Initialize a common cathode RGB LED (default is common anode)
+RGBTools rgb(9,10,11, COMMON_CATHODE);
+```
+
 ##Set a color##
 Use the `setColor`-method for setting an RGB-specified color.
 
@@ -15,7 +23,10 @@ Use the `setColor`-method for setting an RGB-specified color.
 RGBTools rgb(9,10,11);
  
 void setup(){
+  // specify a color using R,G,B values
   rgb.setColor(255,0,0);
+  // Or specify a color using the Color class in the header
+  rgb.setColor(Color::BLUE);
 }
  
 void loop(){
