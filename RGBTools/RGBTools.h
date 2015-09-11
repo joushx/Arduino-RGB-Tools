@@ -1,3 +1,11 @@
+/*
+* RGBTools
+* Version 1.4 April, 2015
+* Copyright 2015 Johannes Mittendorfer
+* 
+* Use this code with RGB-LEDs.
+*/
+
 #ifndef RGBTools_H
 #define RGBTools_H
 
