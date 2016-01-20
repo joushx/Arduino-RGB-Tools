@@ -11,7 +11,7 @@
 
 #include <Arduino.h>
 
-enum Mode { COMMON_ANNODE, COMMON_CATHODE };
+enum Mode { COMMON_ANODE, COMMON_CATHODE };
 
 class RGBTools
 {
