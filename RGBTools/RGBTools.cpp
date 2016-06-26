@@ -67,19 +67,20 @@ void RGBTools::fadeTo(int r,int g,int b,int steps,int duration){
 	int diff_g = g-curr_g;
 	int diff_b = b-curr_b;
 
-	// calculate the width of each step
-	int steps_r = diff_r / steps;
-	int steps_g = diff_g / steps;
-	int steps_b = diff_b / steps;
+	// calculate the width of each step multiplied by 100 as to not lose decimal data
+	int steps_r = (diff_r *100 / steps);
+	int steps_g = (diff_g *100 / steps);
+	int steps_b = (diff_b *100 / steps);
+
 
 	// loop through the steps (i: distance to target)
 	for(int i = steps - 1; i >= 0; i--){
 
 		// set color of current step
 		this->setColor(
-			r - i * steps_r,	// red target minus distance to target steps
-			g - i * steps_g,	// green
-			b - i * steps_b 	// blue
+			r - (i * steps_r)/100,	// red target minus distance to target steps (divided by 100 as to offset steps_r calculations)
+			g - (i * steps_g)/100,	// green
+			b - (i * steps_b)/100 	// blue
 		);
 
 		// delay until next step
