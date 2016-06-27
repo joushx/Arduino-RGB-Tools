@@ -23,7 +23,7 @@ RGBTools::RGBTools(int r, int g, int b, Mode mode){
 	this->r_pin = r;
 	this->g_pin = g;
 	this->b_pin = b;
-	if(mode = COMMON_CATHODE) this->_common_cathode = 1;
+	if(mode == COMMON_CATHODE) this->_common_cathode = 1;
 	else this->_common_cathode = 0;
 }
 
