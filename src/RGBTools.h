@@ -17,7 +17,6 @@ class RGBTools
 {
 	public:
 		RGBTools(uint8_t r, uint8_t g, uint8_t b);
-		RGBTools(uint8_t r, uint8_t g, uint8_t b, uint8_t mode);
 		RGBTools(uint8_t r, uint8_t g, uint8_t b, Mode mode);
 		void setColor(uint8_t r, uint8_t g, uint8_t b);
 		void setColor(uint32_t);

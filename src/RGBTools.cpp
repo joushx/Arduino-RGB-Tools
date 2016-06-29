@@ -1,14 +1,20 @@
-/*
-* RGBTools
-* Version 1.4 April, 2015
-* Copyright 2015 Johannes Mittendorfer
-* 
-* Use this code with RGB-LEDs.
-*/
+/**
+ * @class RGBTools
+ *
+ * @brief Use this code with RGB-LEDs
+ *
+ * @detail This class implements methods to control a RGB LED with Arduino
+ */
 
 #include "RGBTools.h"
 
-// constructor; saves the pins
+/**
+ * constructor; saves the pins
+ *
+ * @param[in] r The Arduino pin number of the red pin of the LED
+ * @param[in] g The Arduino pin number of the green pin of the LED
+ * @param[in] b The Arduino pin number of the blue pin of the LED
+ */
 RGBTools::RGBTools(uint8_t r, uint8_t g, uint8_t b) {
     this->r_pin = r;
     this->g_pin = g;
@@ -18,6 +24,11 @@ RGBTools::RGBTools(uint8_t r, uint8_t g, uint8_t b) {
 /**
  * Constructor using the Mode enum in header file.
  * Ex: RGBTools(9, 10, 11, COMMON_ANODE);
+ *
+ * @param[in] r The Arduino pin number of the red pin of the LED
+ * @param[in] g The Arduino pin number of the green pin of the LED
+ * @param[in] b The Arduino pin number of the blue pin of the LED
+ * @param[in] mode The mode of the RGB (common cathode / common anode)
  */
 RGBTools::RGBTools(uint8_t r, uint8_t g, uint8_t b, Mode mode) {
     this->r_pin = r;
@@ -27,15 +38,13 @@ RGBTools::RGBTools(uint8_t r, uint8_t g, uint8_t b, Mode mode) {
     this->mode = mode;
 }
 
-RGBTools::RGBTools(uint8_t r, uint8_t g, uint8_t b, uint8_t mode) {
-    this->r_pin = r;
-    this->g_pin = g;
-    this->b_pin = b;
-
-    this->mode = mode;
-}
-
-// Set LED-color to custom color instantely
+/**
+ * Set LED-color to custom color instantly
+ *
+ * @param[in] r The red value ([0-255])
+ * @param[in] g The green value ([0-255])
+ * @param[in] b The blue value ([0-255])
+ */
 void RGBTools::setColor(uint8_t r, uint8_t g, uint8_t b) {
     // set color of LED
     if (mode == COMMON_CATHODE) {
@@ -54,7 +63,11 @@ void RGBTools::setColor(uint8_t r, uint8_t g, uint8_t b) {
     this->curr_b = b;
 }
 
-// Use a 32 bit hex value to set a color. See Colors class in header file
+/**
+ * Set LED-color to custom color instantly Uses a 32 bit value to set a color.
+ *
+ * @param[in] color The 32 bit color value (eg. 0xFF0000 for red)
+ */
 void RGBTools::setColor(uint32_t color) {
     uint8_t red = (uint8_t) ((color & 0xFF0000) >> 16);
     uint8_t green = (uint8_t) (color & 0x00FF00) >> 8;
@@ -62,7 +75,15 @@ void RGBTools::setColor(uint32_t color) {
     setColor(red, green, blue);
 }
 
-// Fade to custom color in specific time in specific steps
+/**
+ * Fades to custom color in specific time in specific steps
+ *
+ * @param[in] r The red value ([0-255])
+ * @param[in] g The green value ([0-255])
+ * @param[in] b The blue value ([0-255])
+ * @param[in] steps The number of steps to use
+ * @param[in] duration The duration of the fading in ms
+ */
 void RGBTools::fadeTo(uint8_t r, uint8_t g, uint8_t b, int steps, int duration) {
     // calculate difference to target
     uint8_t diff_r = r-curr_r;
