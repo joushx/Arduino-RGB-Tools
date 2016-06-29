@@ -3,7 +3,7 @@
 RGBTools is a software library for Arduino for controlling an RGB-LED.
 
 ##Installation
-Just copy the `RGBTools` folder to the `libraries` folder of your Arduino-IDE.
+Import a ZIP file from the release section in your Arduino IDE.
 
 ##Initialization
 ```c++
