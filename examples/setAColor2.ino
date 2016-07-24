@@ -1,4 +1,4 @@
-#include <RGBTools.h>
+#include "../lib/RGBTools.h"
 
 // initialize a common cathode LED
 RGBTools rgb(9,10,11, COMMON_CATHODE);
