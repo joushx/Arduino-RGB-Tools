@@ -52,5 +52,5 @@ void loop(){
 }
 ```
 
-##Author##
-Johannes Mittendorfer (http://johannes-mittendorfer.com)
+# Docs
+See the [generated documentation](http://joushx.github.io/Arduino-RGB-Tools)
