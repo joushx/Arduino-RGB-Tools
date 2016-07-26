@@ -1,0 +1,13 @@
+# 255, 0, 0 in 3 steps, 5 sec
+set 1 to 170
+set 2 to 255
+set 3 to 255
+delay 1666
+set 1 to 85
+set 2 to 255
+set 3 to 255
+delay 1666
+set 1 to 0
+set 2 to 255
+set 3 to 255
+delay 1666

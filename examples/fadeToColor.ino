@@ -1,4 +1,4 @@
-#include <RGBTools.h>
+#include "../src/RGBTools.h"
 
 // set pins of red, green and blue
 RGBTools rgb(9,10,11);

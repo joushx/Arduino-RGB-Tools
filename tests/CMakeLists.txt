@@ -1,9 +1,13 @@
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 2.8)
 
-generate_arduino_firmware(setColor 
-	BOARD uno 
-	SKETCH setColor.ino 
-	LIBS RGBTools 
-	PORT /tmp/simavr-uart0
-	SERIAL picocom @SERIAL_PORT@ -b 9600 -l
-)
+project(RGBToolsTests C CXX)
+
+add_definitions(-DDEBUGGING)
+
+add_executable(setColor setColor.cpp)
+add_executable(fadeToColor fadeToColor.cpp)
+
+add_library(RGBTools ../src/RGBTools.h ../src/RGBTools.cpp)
+target_link_libraries(setColor RGBTools)
+target_link_libraries(fadeToColor RGBTools)
+

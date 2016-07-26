@@ -9,7 +9,15 @@
 #ifndef RGBTools_H
 #define RGBTools_H
 
-#include <Arduino.h>
+#ifdef DEBUGGING
+	#define analogWrite(pin,val) (printf("set %d to %d\n", pin, val))
+	#define delay(val) (printf("delay %lu\n", val))
+	#include <stdio.h>
+	#include <stdint.h>
+#else
+	#include <Arduino.h>
+#endif
+
 
 enum Mode { COMMON_ANODE, COMMON_CATHODE };
 

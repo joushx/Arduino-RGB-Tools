@@ -6,4 +6,4 @@ project(RGBTools C CXX)
 
 generate_arduino_library(RGBTools BOARD uno SRCS src/RGBTools.cpp HDRS src/RGBTools.h)
 
-add_subdirectory(tests)
+add_subdirectory(examples)
