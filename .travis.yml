@@ -1,0 +1,21 @@
+language: cpp
+
+compiler:
+  - gcc
+
+os:
+  - linux
+  - osx
+
+before_script:
+  - cd tests
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script: 
+  - make
+  - ./fadeToColor > fadeToColor.actual
+  - cmp fadeToColor.actual ../fadeToColor.expected
+  - ./setColor > setColor.actual
+  - cmp setColor.actual ../setColor.expected
